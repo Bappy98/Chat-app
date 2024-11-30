@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import authRoute from "./router/authRoute.js";
 import messageRoute from "./router/messageRoute.js";
+import user from './router/userRoute.js'
 
 dotenv.config();
 const PORT = process.env.PORT || 4001;
@@ -15,6 +16,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoute);
 app.use("/api/message", messageRoute);
+app.use('/api/user',user)
 
 app.listen(PORT, () => {
   connectToMongoDB();
